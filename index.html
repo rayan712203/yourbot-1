@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06080a">
+  <meta name="description" content="YOURBOT — Automated trading software for MetaTrader 5 and crypto spot markets. Rules-based signals, configurable risk controls, and a demo-first approach.">
+  <meta property="og:title" content="YOURBOT — Trading Software Built Around Your Rules">
+  <meta property="og:description" content="Rules-based trading software with configurable risk controls. Purchase securely with Stripe or PayPal.">
+  <meta property="og:type" content="website">
+  <title>YOURBOT — Trading Software Built Around Your Rules</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Stripe.js for secure card payments -->
+  <script src="https://js.stripe.com/v3/" async></script>
+  <!-- PayPal SDK loaded dynamically after config -->
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="#home">YOUR<span>BOT</span><small>.COM</small></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#features">Features</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#checkout">Buy Now</a>
+        <a href="#setup">Setup</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary small" href="#pricing">Get Started →</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ═════════════════════════════════════════════ -->
+<main id="home">
+<section class="wrap hero">
+  <div class="eyebrow">Automated Trading Software</div>
+  <h1>Trade by Rules.<br><em>Keep Risk Visible.</em></h1>
+  <p class="lead">YOURBOT automates rules-based trading for MetaTrader 5 and crypto spot markets — with configurable risk controls and a demo-first approach.</p>
+  <div class="actions">
+    <a class="btn primary" href="#pricing">View Plans <span>→</span></a>
+    <a class="btn" href="#checkout">Buy Now — Instant Access</a>
+  </div>
+  <p class="micro">No guaranteed returns. Always test on a demo account before risking real funds.</p>
+
+  <div class="stats-bar">
+    <div class="stat-item"><strong>MT5</strong><span>Forex Automation</span></div>
+    <div class="stat-item"><strong>Crypto</strong><span>Spot Trading</span></div>
+    <div class="stat-item"><strong>Risk First</strong><span>Built-in Controls</span></div>
+    <div class="stat-item"><strong>Demo Mode</strong><span>Test Before Live</span></div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═════════════════════════════════════════ -->
+<section class="section alt" id="features">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow">Product Features</div>
+      <h2>Designed for clarity, not hype.</h2>
+      <p>Make the bot's behaviour easier to understand, configure and test. Every feature is built with risk awareness in mind.</p>
+    </div>
+    <div class="grid">
+      <article class="card fade-up">
+        <div class="icon-box">📊</div>
+        <h3>Rules-Based Signals</h3>
+        <p>Clear entry and exit rules with documented symbols and timeframes so you always know what the bot is doing.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="icon-box">⚖️</div>
+        <h3>Smart Position Sizing</h3>
+        <p>Configure trade risk and lot sizing with built-in constraints to keep your exposure under control.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="icon-box">🛡️</div>
+        <h3>Daily Risk Limits</h3>
+        <p>Set daily drawdown caps and consecutive-loss limits that automatically pause trading to protect your capital.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="icon-box">⏱️</div>
+        <h3>Session & Spread Filters</h3>
+        <p>Control when the bot trades based on market hours, spread thresholds and volatility conditions.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="icon-box">🧪</div>
+        <h3>Demo / Paper Mode</h3>
+        <p>Test the full workflow without risking real money. Learn and verify behaviour before going live.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="icon-box">🔐</div>
+        <h3>Licence Management</h3>
+        <p>Secure activation with expiry controls, device limits and instant delivery after confirmed payment.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRADING TERMINAL ═════════════════════════════════ -->
+<section class="section" id="terminal">
+  <div class="wrap">
+    <div class="sectionhead" style="text-align:center;margin-inline:auto;">
+      <div class="eyebrow" style="justify-content:center;">Live Market Terminal</div>
+      <h2>Real-time charts, right here.</h2>
+      <p style="margin-inline:auto;">Interactive TradingView charts with multiple markets and timeframes. Explore before you buy.</p>
+    </div>
+    <div class="market-panel">
+      <div class="market-head">
+        <div>
+          <div class="market-title">YOURBOT Trading Terminal</div>
+          <div class="market-sub">Interactive chart powered by TradingView</div>
+        </div>
+        <span class="market-badge"><span class="up">●</span> CHART FEED</span>
+      </div>
+      <div class="market-tools">
+        <select id="marketSymbol" aria-label="Choose market">
+          <option value="FX:EURUSD">EUR/USD</option>
+          <option value="FX:GBPUSD">GBP/USD</option>
+          <option value="OANDA:XAUUSD">Gold / XAUUSD</option>
+          <option value="BINANCE:BTCUSDT">BTC / USDT</option>
+          <option value="BINANCE:ETHUSDT">ETH / USDT</option>
+          <option value="NASDAQ:AAPL">AAPL</option>
+        </select>
+        <select id="chartInterval" aria-label="Choose chart interval">
+          <option value="1">1 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="15">15 min</option>
+          <option value="60">1 hour</option>
+          <option value="240">4 hours</option>
+          <option value="D">1 day</option>
+        </select>
+        <button id="refreshChart" type="button">Reload Chart</button>
+      </div>
+      <div id="tv_chart_container" aria-label="Interactive candlestick market chart"></div>
+      <div class="tv-fallback" id="chartStatus">Loading interactive chart… Internet connection required for market data.</div>
+      <div class="live-strip">
+        <div class="live-cell"><span>Chart mode</span><strong id="feedStatus">Connecting…</strong></div>
+        <div class="live-cell"><span>Selected market</span><strong id="selectedMarket">EUR/USD</strong></div>
+        <div class="live-cell"><span>Candle colours</span><strong><span class="up">Green = up</span> / <span class="down-text">Red = down</span></strong></div>
+        <div class="live-cell"><span>Execution status</span><strong>Chart only — no orders</strong></div>
+      </div>
+      <div class="chart-footer">
+        <span><b>Real chart interface</b><br>Use symbol and timeframe controls above</span>
+        <span style="text-align:right">Market chart only<br>No orders are placed by this page</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PERFORMANCE ══════════════════════════════════════ -->
+<section class="section alt" id="performance">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow">Performance Transparency</div>
+      <h2>Show evidence. Label every result.</h2>
+      <p>We believe in honest reporting. Performance data is verified and clearly separated between backtests and live trading.</p>
+    </div>
+    <div class="split">
+      <div class="card">
+        <h3>What a credible report includes</h3>
+        <ul class="list">
+          <li><span class="check">✓</span><span><b>Period & market:</b> date range, symbols, timeframe and broker/exchange.</span></li>
+          <li><span class="check">✓</span><span><b>Costs:</b> spreads, commissions, swaps/funding and slippage.</span></li>
+          <li><span class="check">✓</span><span><b>Risk metrics:</b> maximum drawdown, trade count, profit factor and net return.</span></li>
+          <li><span class="check">✓</span><span><b>Method:</b> test settings, data source and whether results are simulated or live.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Metrics glossary</h3>
+        <div class="tablewrap">
+          <table class="table">
+            <tbody>
+              <tr><td><b>Net return</b></td><td class="muted">Result after stated costs</td></tr>
+              <tr><td><b>Max drawdown</b></td><td class="muted">Largest peak-to-trough decline</td></tr>
+              <tr><td><b>Win rate</b></td><td class="muted">Winning trades ÷ closed trades</td></tr>
+              <tr><td><b>Profit factor</b></td><td class="muted">Gross profit ÷ gross loss</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="smalltext" style="margin-top:12px;">Do not treat historical or simulated performance as a promise of future results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ══════════════════════════════════════════ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="sectionhead" style="text-align:center;margin-inline:auto;">
+      <div class="eyebrow" style="justify-content:center;">Simple Annual Pricing</div>
+      <h2>Choose the product you need.</h2>
+      <p style="margin-inline:auto;">Transparent pricing with instant delivery. Pick your plan and start trading today.</p>
+    </div>
+    <div class="plans">
+      <article class="card plan fade-up">
+        <span class="tag">MetaTrader 5</span>
+        <h3 style="margin-top:12px;">MT5 Forex Bot</h3>
+        <div class="price">$100 <small>/ year</small></div>
+        <p class="muted" style="font-size:.9rem;">For users running a supported MT5 Expert Advisor.</p>
+        <ul>
+          <li>1 device + 1 MT5 account</li>
+          <li>Updates during licence term</li>
+          <li>Installation guide included</li>
+          <li>Demo-account testing recommended</li>
+        </ul>
+        <a class="btn primary" href="#checkout" data-plan="mt5">Buy MT5 Plan →</a>
+      </article>
+      <article class="card plan highlight fade-up">
+        <span class="tag">Crypto Spot</span>
+        <h3 style="margin-top:12px;">Crypto Bot</h3>
+        <div class="price">$150 <small>/ year</small></div>
+        <p class="muted" style="font-size:.9rem;">For supported crypto spot exchange workflows.</p>
+        <ul>
+          <li>1 device + 1 exchange account</li>
+          <li>Paper mode / testnet supported</li>
+          <li>Updates during licence term</li>
+          <li>Withdraw-disabled API keys recommended</li>
+        </ul>
+        <a class="btn primary" href="#checkout" data-plan="crypto">Buy Crypto Plan →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHECKOUT ═════════════════════════════════════════ -->
+<section class="section alt" id="checkout">
+  <div class="wrap">
+    <div class="sectionhead" style="text-align:center;margin-inline:auto;">
+      <div class="eyebrow" style="justify-content:center;">Secure Checkout</div>
+      <h2>Complete your purchase.</h2>
+      <p style="margin-inline:auto;">Pay securely with credit/debit card via Stripe or with PayPal. Your licence key is delivered instantly.</p>
+    </div>
+    <div class="checkout-layout">
+
+      <!-- ORDER SUMMARY -->
+      <div class="checkout-card">
+        <h3>Order Summary</h3>
+        <label for="checkoutProduct" class="smalltext">Select software</label>
+        <select id="checkoutProduct">
+          <option value="mt5">MT5 Forex Bot — $100 / year</option>
+          <option value="crypto">Crypto Bot — $150 / year</option>
+        </select>
+        <div class="checkout-summary"><span class="muted">Product</span><strong id="checkoutName">MT5 Forex Bot</strong></div>
+        <div class="checkout-summary"><span class="muted">Licence term</span><strong>12 months</strong></div>
+        <div class="checkout-summary"><span class="muted">Subtotal</span><strong id="checkoutPrice">$100.00</strong></div>
+        <div class="checkout-summary"><span class="muted">Tax / fees</span><strong>Calculated at checkout</strong></div>
+        <div class="checkout-summary">
+          <span style="font-weight:600;">Due today</span>
+          <strong class="checkout-total" id="checkoutDue">$100.00</strong>
+        </div>
+      </div>
+
+      <!-- PAYMENT FORM -->
+      <form class="checkout-card" id="checkoutForm" autocomplete="on">
+        <h3>Payment Details</h3>
+
+        <label for="checkoutEmail" class="smalltext">Email for order & licence key</label>
+        <input id="checkoutEmail" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com">
+
+        <div class="smalltext" style="margin-bottom:8px;">Choose payment method</div>
+        <div class="pay-methods">
+          <label class="pay-method">
+            <input type="radio" name="payMethod" value="stripe" checked> 💳 Credit / Debit Card
+          </label>
+          <label class="pay-method">
+            <input type="radio" name="payMethod" value="paypal"> 🅿️ PayPal
+          </label>
+        </div>
+
+        <!-- STRIPE CARD FIELDS -->
+        <div id="stripeFields">
+          <label class="smalltext">Card information</label>
+          <div id="stripe-card-element">
+            <!-- Stripe Elements will be mounted here -->
+            <div class="card-fields" id="manualCardFields">
+              <div class="full">
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number" inputmode="numeric">
+              </div>
+              <div>
+                <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" autocomplete="cc-exp" inputmode="numeric">
+              </div>
+              <div>
+                <input type="text" id="cardCvc" placeholder="CVC" maxlength="4" autocomplete="cc-csc" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYPAL BUTTON -->
+        <div id="paypalFields" style="display:none;">
+          <div id="paypal-button-container"></div>
+          <p class="smalltext" style="margin-top:10px;text-align:center;">You'll be redirected to PayPal to complete payment securely.</p>
+        </div>
+
+        <button class="btn primary full" type="submit" id="payBtn" style="margin-top:16px;">
+          <span id="payBtnText">Pay $100.00 →</span>
+          <span id="payBtnSpinner" class="spinner" style="display:none;"></span>
+        </button>
+
+        <div class="checkout-state" id="checkoutState">
+          🔒 Your payment is processed securely via Stripe / PayPal. We never store your card details.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SETUP ════════════════════════════════════════════ -->
+<section class="section" id="setup">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow">Getting Started</div>
+      <h2>Up and running in 3 steps.</h2>
+      <p>A clear path from purchase to your first automated trade.</p>
+    </div>
+    <div class="grid">
+      <article class="card fade-up">
+        <div class="step-number">01</div>
+        <h3>Choose Your Plan</h3>
+        <p>Check platform compatibility, supported markets, system requirements and licence terms. Then purchase securely.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="step-number">02</div>
+        <h3>Install & Configure</h3>
+        <p>Follow the official installation guide. Protect your credentials and never share private API keys.</p>
+      </article>
+      <article class="card fade-up">
+        <div class="step-number">03</div>
+        <h3>Test in Demo Mode</h3>
+        <p>Check logs, order behaviour, stops and risk settings. Only go live after you understand the risks.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══════════════════════════════════════════════ -->
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow">Frequently Asked Questions</div>
+      <h2>Everything you need to know.</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Does YOURBOT guarantee profits?</summary>
+        <p>No. Trading can result in losses, and automated software can fail or behave unexpectedly. No return or win rate is guaranteed.</p>
+      </details>
+      <details>
+        <summary>Should I use it on a live account first?</summary>
+        <p>No. Start with a broker demo account or crypto paper/testnet mode. Test realistic costs and monitor behaviour before considering live use.</p>
+      </details>
+      <details>
+        <summary>How do I receive my licence after purchase?</summary>
+        <p>Your licence key is generated instantly after successful payment. It's displayed on screen and sent to your email address.</p>
+      </details>
+      <details>
+        <summary>Do I need a VPS?</summary>
+        <p>It depends on how continuously you want the bot running. For 24/7 operation, a VPS is recommended. Check the setup guide for system requirements.</p>
+      </details>
+      <details>
+        <summary>What payment methods do you accept?</summary>
+        <p>We accept all major credit and debit cards (Visa, Mastercard, Amex) via Stripe, and PayPal for alternative payments.</p>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <p>Please contact our support team within 7 days of purchase if you're unsatisfied. Refund eligibility depends on usage and specific circumstances.</p>
+      </details>
+      <details>
+        <summary>Is my payment information secure?</summary>
+        <p>Absolutely. All payments are processed by Stripe or PayPal — industry-leading payment processors. We never see or store your card details.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Support & Questions</div>
+        <h2>Need help before buying?</h2>
+        <p class="lead" style="margin-bottom:24px;">Our team is here to answer your questions about the software, compatibility and setup.</p>
+        <div class="legalbox">
+          <h3>Get in Touch</h3>
+          <p>Fill out the form and we'll get back to you as soon as possible. For urgent queries, email us directly.</p>
+          <p style="margin-top:10px;"><b>Email:</b> support@yourbot.com</p>
+        </div>
+      </div>
+      <form id="contactForm" class="card">
+        <div class="formgrid">
+          <div class="field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" name="name" autocomplete="name" required maxlength="100" placeholder="Full name">
+          </div>
+          <div class="field">
+            <label for="contactEmail">Email address</label>
+            <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com">
+          </div>
+          <div class="field full">
+            <label for="contactProduct">Product</label>
+            <select id="contactProduct" name="product">
+              <option>General question</option>
+              <option>MT5 Forex Bot</option>
+              <option>Crypto Bot</option>
+              <option>Payments and licences</option>
+              <option>Technical support</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" required maxlength="3000" placeholder="How can we help?"></textarea>
+          </div>
+          <div class="field full">
+            <button class="btn primary full" type="submit">Send Message →</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEGAL ════════════════════════════════════════════ -->
+<section class="section alt" id="legal">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div class="eyebrow">Policies & Disclosures</div>
+      <h2>Transparency you can trust.</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Risk Disclosure</h3>
+        <p>Forex, CFDs and cryptoassets can be highly volatile. You may lose some or all of your capital. Software is a tool, not investment advice.</p>
+      </article>
+      <article class="card">
+        <h3>Privacy Policy</h3>
+        <p>We collect only what's needed to process orders and deliver licences. Your payment data is handled entirely by Stripe/PayPal.</p>
+      </article>
+      <article class="card">
+        <h3>Terms & Refund Policy</h3>
+        <p>Clear licence scope, device limits, update terms and refund eligibility. Contact support within 7 days for refund requests.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo">YOUR<span>BOT</span><small>.COM</small></div>
+        <p>Automated trading software with built-in risk controls. Trade smarter, not harder.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#checkout">Buy Now</a>
+        <a href="#setup">Setup Guide</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="#terminal">Trading Terminal</a>
+        <a href="#performance">Performance</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Support</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#legal">Risk Disclosure</a>
+        <a href="#legal">Privacy Policy</a>
+        <a href="#legal">Terms of Service</a>
+        <a href="#legal">Refund Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p><b>YOURBOT.COM</b> — Trading involves significant risk. You can lose some or all of your invested capital. This software is not investment advice.</p>
+      <p>© <span id="year"></span> YOURBOT. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ TOAST ════════════════════════════════════════════ -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══ SUCCESS MODAL ════════════════════════════════════ -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="success-icon">✅</div>
+    <h2>Payment Successful!</h2>
+    <p style="margin-bottom:8px;">Your order has been confirmed.</p>
+    <div id="modalOrderId" class="smalltext" style="margin-bottom:16px;"></div>
+    <p class="smalltext" style="margin-bottom:6px;">Your licence key:</p>
+    <div class="licence-key" id="modalLicenceKey">—</div>
+    <p>Save this key! You'll need it to activate your software. A copy has been associated with your email.</p>
+    <button class="btn primary full" style="margin-top:20px;" onclick="document.getElementById('successModal').classList.remove('show');">Got it — Close</button>
+  </div>
+</div>
+
+<!-- ═══ JAVASCRIPT ══════════════════════════════════════ -->
+<script src="/app.js"></script>
+
+</body>
+</html>

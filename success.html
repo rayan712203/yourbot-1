@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06080a">
+  <title>Payment Successful — YOURBOT</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="/">YOUR<span>BOT</span><small>.COM</small></a>
+      <div class="navlinks">
+        <a class="btn primary small" href="/">Back to Home →</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="min-height:70vh;display:flex;align-items:center;">
+    <div class="wrap" style="text-align:center;max-width:600px;margin:0 auto;">
+      <div style="width:90px;height:90px;border-radius:50%;background:rgba(52,211,153,0.1);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2.5rem;">
+        ✅
+      </div>
+      <h1 style="font-size:2.2rem;margin-bottom:16px;">Payment Successful!</h1>
+      <p class="lead" style="text-align:center;margin:0 auto 28px;">
+        Thank you for your purchase. Your licence key has been generated and is ready for use.
+      </p>
+      <div id="orderDetails" class="checkout-card" style="text-align:left;margin:0 auto 24px;">
+        <div class="checkout-summary"><span class="muted">Order Status</span><strong class="up">Confirmed ✓</strong></div>
+        <div class="checkout-summary"><span class="muted">Product</span><strong id="successProduct">—</strong></div>
+        <div class="checkout-summary"><span class="muted">Licence Key</span><strong id="successKey" style="font-family:'Space Grotesk',monospace;color:var(--accent);">Generating...</strong></div>
+      </div>
+      <p class="smalltext" style="margin-bottom:24px;">Save your licence key! You'll need it to activate your software. A copy is linked to your email.</p>
+      <a class="btn primary" href="/">Return to Home →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" style="border-top:1px solid var(--line);padding:24px 0;">
+  <div class="wrap" style="text-align:center;">
+    <p class="smalltext">© <script>document.write(new Date().getFullYear())</script> YOURBOT. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Get session info from URL
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('session_id');
+  const productId = params.get('product');
+
+  const products = {
+    mt5: 'MT5 Forex Bot',
+    crypto: 'Crypto Bot'
+  };
+
+  if (productId && products[productId]) {
+    document.getElementById('successProduct').textContent = products[productId];
+  }
+
+  // Generate a display licence key
+  function genKey() {
+    const s = () => {
+      const arr = new Uint8Array(4);
+      crypto.getRandomValues(arr);
+      return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+    };
+    return 'YB-' + s() + '-' + s() + '-' + s() + '-' + s();
+  }
+  document.getElementById('successKey').textContent = genKey();
+</script>
+</body>
+</html>

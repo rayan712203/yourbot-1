@@ -1,0 +1,13 @@
+{
+  "name": "yourbot-website",
+  "version": "1.0.0",
+  "description": "YOURBOT — Trading Software Storefront with Stripe & PayPal",
+  "scripts": {
+    "dev": "node dev.js",
+    "build": "echo 'Static site — no build step'",
+    "start": "node dev.js"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
